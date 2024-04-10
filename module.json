@@ -1,0 +1,8 @@
+{
+    "name": "Yoomoney",
+    "version": "1.0.0",
+    "description": "Integrates a Yoomoney to Flute",
+    "authors": ["leonardjke", "Flames"],
+    "providers": ["Flute\\Modules\\Yoomoney\\ServiceProviders\\YoomoneyServiceProvider"],
+    "dependencies": {}
+}
