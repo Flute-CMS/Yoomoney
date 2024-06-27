@@ -7,7 +7,6 @@ use Omnipay\Common\Message\RedirectResponseInterface;
 
 class CompletePurchaseResponse extends AbstractResponse implements RedirectResponseInterface
 {
-
     public function isSuccessful()
     {
         return true;

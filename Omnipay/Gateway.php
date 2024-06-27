@@ -76,9 +76,9 @@ class Gateway extends AbstractGateway
      *
      * @return \Omnipay\Common\Message\NotificationInterface
      */
-    public function acceptNotification(array $parameters = [])
-    {
-        return $this->createRequest(NotificationRequest::class, $parameters);
-    }
+    // public function acceptNotification(array $parameters = [])
+    // {
+    //     return $this->createRequest(NotificationRequest::class, $parameters);
+    // }
 
 }

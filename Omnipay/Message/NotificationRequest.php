@@ -9,14 +9,13 @@ class NotificationRequest extends AbstractRequest implements NotificationInterfa
 
     public const HASH_ERROR = 'hash_error';
     public const UNACCEPTED = 'unaccepted';
-    public const PROTECTED  = 'protected';
+    public const PROTECTED = 'protected';
 
     protected $data;
 
     public function getData()
     {
-        if (isset($this->data))
-        {
+        if (isset($this->data)) {
             return $this->data;
         }
 
@@ -36,18 +35,15 @@ class NotificationRequest extends AbstractRequest implements NotificationInterfa
      */
     public function getTransactionStatus()
     {
-        if (!$this->isValid())
-        {
+        if (!$this->isValid()) {
             return self::STATUS_FAILED;
         }
 
-        if ($this->getUnaccepted())
-        {
+        if ($this->getUnaccepted()) {
             return self::STATUS_PENDING;
         }
 
-        if ($this->getCodePro())
-        {
+        if ($this->getCodePro()) {
             return self::STATUS_PENDING;
         }
 
@@ -59,18 +55,15 @@ class NotificationRequest extends AbstractRequest implements NotificationInterfa
      */
     public function getMessage()
     {
-        if (!$this->isValid())
-        {
+        if (!$this->isValid()) {
             return self::HASH_ERROR; // Хэш не совпадает
         }
 
-        if ($this->getUnaccepted())
-        {
+        if ($this->getUnaccepted()) {
             return self::UNACCEPTED; // Перевод еще не зачислен. Получателю нужно освободить место в кошельке
         }
 
-        if ($this->getCodePro())
-        {
+        if ($this->getCodePro()) {
             return self::PROTECTED; // Перевод защищен кодом протекции
         }
 
@@ -258,6 +251,6 @@ class NotificationRequest extends AbstractRequest implements NotificationInterfa
 
     public function sendData($data)
     {
-        return $this;
+        return $this->response = new NotificationResponse($this, $data);
     }
 }
